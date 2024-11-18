@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-
+import {BASE_URL} from '../baseUrl';
 const ImageUploadForm = ({result, setResult}) => {
   const [file, setFile] = useState(null);
-
+  const baseUrl = BASE_URL;
+  console.log(BASE_URL);
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
   };
@@ -19,7 +20,7 @@ const ImageUploadForm = ({result, setResult}) => {
     console.log(formData, file);
     console.log("hi");
     try {
-      const response = await fetch("http://localhost:3001/api/images/upload", {
+      const response = await fetch(`${baseUrl}/api/images/process`, {
         method: "POST",
         body: formData,
       });

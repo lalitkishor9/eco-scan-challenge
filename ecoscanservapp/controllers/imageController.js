@@ -1,15 +1,19 @@
+const fs = require("fs");
+const path = require("path");
 const { calculateCarbonScore, calculateEcoPoints } = require("../utils/calculateScores");
-const { processImageBuffer } = require("../services/imageProcessor");
+const { processImageWithGPT } = require("../services/imageProcessor");
 
 const imageResults = new Map();
 
 const processImage = async (req, res) => {
     console.log("File received:", req.file);
   try {
-    console.log(req.file);
-    const { buffer } = req.file;
-    // Simulate image processing to recognize items
-    const recognizedItems = processImageBuffer(buffer);
+    // const filePath = path.resolve(req.file.path);
+    // const imageBase64 = fs.readFileSync(filePath, { encoding: "base64" });
+    const imageBase64= req.file.buffer.toString('base64')
+
+    // Process image using GPT-4
+    const recognizedItems = await processImageWithGPT(imageBase64);
 
     // Calculate scores
     const totalCarbonScore = calculateCarbonScore(recognizedItems);

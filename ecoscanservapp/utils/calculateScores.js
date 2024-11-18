@@ -5,7 +5,7 @@ const calculateCarbonScore = (items) => {
 };
 
 const calculateEcoPoints = (totalCarbonScore) => {
-  return Math.max(100 - totalCarbonScore * 10, 0);
+  return Math.max(500 - totalCarbonScore * 10, 0);
 };
 
 module.exports = { calculateCarbonScore, calculateEcoPoints };
