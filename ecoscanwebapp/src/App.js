@@ -1,28 +1,26 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
-import FileUpload from "./components/FileUpload";
-import CarbonScore from "./components/CarbonScore";
-import EcoReward from "./components/EcoReward";
+import Dashboard from "./components/Dashboard";
 import Footer from "./components/Footer";
+import LandingPage from "./components/LandingPage";
 import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
-  const [result, setResult] = useState(null);
   return (
-    <div className="app">
+
+    <>
+    <Router>
       <Header />
-      <FileUpload result = {result} setResult={setResult} />
-      {result && (
-        <div className="results">
-          <CarbonScore totalCarbonScore={result.totalCarbonScore} />
-          <EcoReward
-            ecoRewardPoints={result.ecoRewardPoints}
-            recognizedItems={result.recognizedItems}
-          />
-        </div>
-      )}
+      <div className="container">
+      <Routes>
+      <Route exact path="/" element={<LandingPage />}></Route>
+      <Route exact path="/dashboard" element={<Dashboard/>}></Route>
+      </Routes>
+      </div>
       <Footer />
-    </div>
+      </Router>
+    </>
   );
 }
 

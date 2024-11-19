@@ -6,6 +6,14 @@ const app = express();
 app.use(cors());
 
 // Multer configuration
+// const storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, './temp'); // Use the temporary writable directory
+//     },
+//     filename: (req, file, cb) => {
+//         cb(null, `${Date.now()}-${file.originalname}`);
+//     },
+// });
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 

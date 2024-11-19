@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import {BASE_URL} from '../baseUrl';
-const ImageUploadForm = ({result, setResult}) => {
+import CarbonScore from "./CarbonScore";
+import EcoReward from "./EcoReward";
+const Dashboard = () => {
   const [file, setFile] = useState(null);
+  const [result, setResult] = useState(null);
   const baseUrl = BASE_URL;
   console.log(BASE_URL);
   const handleFileChange = (e) => {
@@ -49,8 +52,16 @@ const ImageUploadForm = ({result, setResult}) => {
           <pre>{JSON.stringify(result, null, 2)}</pre>
         </div>
       )}
+      {result && (
+        <div className="results">
+          <CarbonScore totalCarbonScore={result.totalCarbonScore} />
+          <EcoReward
+            ecoRewardPoints={result.ecoRewardPoints}
+            recognizedItems={result.recognizedItems}
+          />
+        </div>)}
     </div>
   );
 };
 
-export default ImageUploadForm;
+export default Dashboard;
