@@ -12,7 +12,7 @@
     white-space: nowrap;
     overflow: hidden;
     width: 0;
-    animation: typing 10s steps(80) 1s 1 normal both;
+    animation: typing 5s steps(80) 1s 1 normal both;
     max-width: 100%;
     word-wrap: break-word; /* Prevents overflow */
   }

@@ -12,3 +12,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.drag-active {
+  background-color: #e9f7ff;
+  border-color: #1b72ce;
+  box-shadow: 0px 0px 10px rgba(73, 132, 196, 0.5);
+}
+.form-group {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form-group:hover {
+  color: white;
+  background-color: #c5d0db;
+}

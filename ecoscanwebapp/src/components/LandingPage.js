@@ -21,7 +21,7 @@ const LandingPage = () => {
         </div>
         <div>
           <Link to={"/dashboard"}>
-          <button className="btn btn-outline-light mt-3 btn-lg">Get Started</button>
+          <button className="btn btn-outline-light m-3 btn-lg">Get Started</button>
           </Link>
 
         </div>
